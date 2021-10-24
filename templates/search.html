@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for i in num %}
+            <h3>{{i.name}}</h3>
+            <h3>{{i.phonenum}}</h3>
+            <h3>{{i.address}}</h3>
+            <h3>{{i.email}}</h3>
+        </div>
+        {% endfor %}
+     </div>
+</div>
+{% endblock %}
+

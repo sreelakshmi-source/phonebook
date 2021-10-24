@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class= "container">
+ <div class= "row">
+    <div class="col-md-12">
+        <div class="banner">
+            <div class="banner-text">
+                <h4> <b>CONTACT BOOK </b> </h4>
+                <div class="col-md-3">
+                     <form class="navbar-form navbar-left" action="{% url 'search' %}">
+                         <input style="text-align: center; " type="text" placeholder="Search by Name" name="q">
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<div class="row">
+     <div class="col-md-6">
+      <h4><i>ADD CONTACT </i> </h4>
+<body>
+<form method="post"class="p-3 shadow">
+    {% csrf_token %}
+    <div class="form-group">
+    <input type="text" name = "name" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+    <input type="text" name = "phonenum" placeholder="Enter Phone Number">
+    </div>
+    <div class="form-group">
+    <input type="text" name = "address" placeholder="Enter Address">
+    </div>
+    <div class="form-group">
+    <input type="text" name = "email" placeholder="Enter Email">
+    </div>
+    <div class="form-group">
+    <input type="submit" class="btn btn-success" >
+    </div>
+</form>
+     </div>
+
+
+
+         <div class = "col-md-6">
+             <h4><i> CONTACT LIST</i> </h4>
+             {% for i in list %}
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title"> {{i.name}} </h5>
+                      <h6>{{i.phonenum}}<br>{{i.address}} <br>{{i.email}} </h6>
+                      <a href="{% url 'delete' i.id %}" class="btn btn-danger" >Delete</a>
+                      <a href="{% url 'update'  i.id %}" class ="btn btn-primary">Update</a>
+                  </div>
+              </div><br>
+              {% endfor %}
+         </div>
+
+ </div>
+</div>
+</body>
+</div>
+{% endblock %}

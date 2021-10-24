@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+<form method="post">
+  {% csrf_token %}
+
+  <div class="card" style="width:200px; height:150px">
+    Are you sure to 'Delete' ?<br>
+    <input type="submit" class="btn btn-primary"  value="yes">
+  </div>
+
+
+
+</form>
+{% endblock %}
